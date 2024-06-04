@@ -2,6 +2,7 @@ import './App.css';
 import { BudgetTile } from './components/BudgetTile';
 import { ExpenseTile } from './components/ExpenseTile';
 import { RemainingTile } from './components/RemainingTile';
+import { ExpenseList } from './components/ExpenseList';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -17,6 +18,12 @@ function App() {
         </div>
         <div className='col-sm'>
           <RemainingTile></RemainingTile>
+        </div>
+        <h3 className='mt-3'>Expenses</h3>
+        <div className='row mt-3'>
+          <div className='col-sm'>
+            <ExpenseList></ExpenseList>
+          </div>
         </div>
       </div>
     </div>
