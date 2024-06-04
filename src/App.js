@@ -1,7 +1,7 @@
 import './App.css';
-import { BudgetTile } from './BudgetTile';
-import { ExpenseTile } from './ExpenseTile';
-import { RemainingTile } from './RemainingTile';
+import { BudgetTile } from './components/BudgetTile';
+import { ExpenseTile } from './components/ExpenseTile';
+import { RemainingTile } from './components/RemainingTile';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
