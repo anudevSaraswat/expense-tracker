@@ -6,7 +6,7 @@ export function ExpenseListItem(props) {
             {props.name}
             <div>
                 <span className="badge badge-primary badge-pill mr-3">
-                    {props.name}
+                    Rs{props.cost}
                 </span>
                 <TiDelete size="1.5em"></TiDelete>
             </div>
