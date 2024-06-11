@@ -3,6 +3,7 @@ import { BudgetTile } from './components/BudgetTile';
 import { ExpenseTile } from './components/ExpenseTile';
 import { RemainingTile } from './components/RemainingTile';
 import { ExpenseList } from './components/ExpenseList';
+import { AddExpenseForm } from './components/AddExpenseForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -23,6 +24,12 @@ function App() {
         <div className='row mt-3'>
           <div className='col-sm'>
             <ExpenseList></ExpenseList>
+          </div>
+        </div>
+        <h3 className='mt-3'>Add Expense</h3>
+        <div className='row mt-3'>
+          <div className='col-sm'>
+            <AddExpenseForm></AddExpenseForm>
           </div>
         </div>
       </div>
