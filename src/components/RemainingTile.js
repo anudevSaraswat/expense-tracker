@@ -1,7 +1,7 @@
-export function RemainingTile() {
+export function RemainingTile({ remainingAmount }) {
     return (
         <div className="alert alert-success">
-            <span>Remaining : 19000INR</span>
+            <span>Remaining : {remainingAmount}INR</span>
         </div>
     );
 }

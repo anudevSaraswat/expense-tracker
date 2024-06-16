@@ -1,7 +1,7 @@
-export function ExpenseTile() {
+export function ExpenseTile({ expense }) {
     return (
         <div className="alert alert-primary">
-            <span>Expense : 1000INR</span>
+            <span>Expense : {expense}INR</span>
         </div>
     );
 }
