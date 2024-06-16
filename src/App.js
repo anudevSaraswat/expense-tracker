@@ -5,31 +5,60 @@ import { RemainingTile } from './components/RemainingTile';
 import { ExpenseList } from './components/ExpenseList';
 import { AddExpenseForm } from './components/AddExpenseForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from 'react';
 
 function App() {
+
+  const budget = 50000;
+
+  const [expenses, setExpenses] = useState([]);
+  const [expense, setExpense] = useState(0);
+  const [remainingAmount, setRemainingAmount] = useState(budget);
+
+
+  function addNewExpense(name, cost) {
+    setExpenses((prev) => {
+      return [...prev, { name: name, cost: cost }];
+    });
+    updateExpense(cost);
+    updateRemainingAmount(cost);
+  }
+
+  function updateExpense(cost) {
+    setExpense((prev) => {
+      return prev + Number(cost);
+    });
+  }
+
+  function updateRemainingAmount(cost) {
+    setRemainingAmount((prev) => {
+      return prev - Number(cost);
+    });
+  }
+
   return (
     <div>
       <h1 className='mt-3'>Expense Tracker</h1>
       <div className='row mt-3'>
         <div className='col-sm'>
-          <BudgetTile></BudgetTile>
+          <BudgetTile budget={budget}></BudgetTile>
         </div>
         <div className='col-sm'>
-          <ExpenseTile></ExpenseTile>
+          <ExpenseTile expense={expense}></ExpenseTile>
         </div>
         <div className='col-sm'>
-          <RemainingTile></RemainingTile>
+          <RemainingTile remainingAmount={remainingAmount}></RemainingTile>
         </div>
         <h3 className='mt-3'>Expenses</h3>
         <div className='row mt-3'>
           <div className='col-sm'>
-            <ExpenseList></ExpenseList>
+            <ExpenseList expenses={expenses}></ExpenseList>
           </div>
         </div>
         <h3 className='mt-3'>Add Expense</h3>
         <div className='row mt-3'>
           <div className='col-sm'>
-            <AddExpenseForm></AddExpenseForm>
+            <AddExpenseForm addExpense={addNewExpense}></AddExpenseForm>
           </div>
         </div>
       </div>
