@@ -7,7 +7,10 @@ export function AddExpenseForm({ addExpense }) {
 
     return (
         <div>
-            <form>
+            <form id="expensive" onSubmit={(e) => {
+                e.preventDefault();
+                addExpense(name, cost);
+            }}>
                 <div className="row">
                     <div className="col-sm">
                         <label for="name">Name</label>
@@ -28,17 +31,14 @@ export function AddExpenseForm({ addExpense }) {
                         </input>
                     </div>
                 </div>
-                {/* <div className="row">
-                <div className="col-sm">
-                    <button className="btn btn-primary mt-3" onClick={() => addExpense(name, cost)}>
-                        Save
-                    </button>
+                <div className="row">
+                    <div className="col-sm">
+                        <button className="btn btn-primary mt-3">
+                            Save
+                        </button>
+                    </div>
                 </div>
-            </div> */}
             </form>
-            <button className="btn btn-primary mt-3" onClick={() => addExpense(name, cost)}>
-                Save
-            </button>
         </div>
     );
 }
