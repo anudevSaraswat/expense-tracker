@@ -1,24 +1,6 @@
 import { ExpenseListItem } from "./ExpenseListItem";
 
-export function ExpenseList() {
-
-    const expenses = [
-        {
-            id: 1,
-            name: "Shopping",
-            cost: 5000,
-        },
-        {
-            id: 2,
-            name: "Dining",
-            cost: 5000,
-        },
-        {
-            id: 3,
-            name: "Fun",
-            cost: 5000,
-        },
-    ];
+export function ExpenseList({ expenses }) {
 
     return (
         <ul className="list-group">
