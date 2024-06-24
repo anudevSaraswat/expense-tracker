@@ -8,7 +8,7 @@ export function ExpenseListItem({ expense, removeExpense }) {
                 {expense.cost}INR
             </span>
             <div>
-                <TiDelete size="1.5em" onClick={() => removeExpense(expense.id)}></TiDelete>
+                <TiDelete size="1.5em" onClick={() => removeExpense(expense.id, expense.cost)}></TiDelete>
             </div>
         </li>
     );

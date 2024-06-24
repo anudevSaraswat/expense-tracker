@@ -21,25 +21,39 @@ function App() {
     setExpenses((prev) => {
       return [...prev, { id: uuidv4(), name: name, cost: cost }];
     });
-    updateExpense(cost);
-    updateRemainingAmount(cost);
+    addExpense(cost);
+    subtractRemainingAmount(cost);
   }
 
-  function removeExpense(expenseID) {
+  function removeExpense(expenseID, cost) {
     setExpenses((prev) => {
       return prev.filter((item) => item.id !== expenseID);
     });
+    subtractExpense(cost);
+    addRemainingAmount(cost);
   }
 
-  function updateExpense(cost) {
+  function addExpense(cost) {
     setExpense((prev) => {
       return prev + Number(cost);
     });
   }
 
-  function updateRemainingAmount(cost) {
+  function subtractRemainingAmount(cost) {
     setRemainingAmount((prev) => {
       return prev - Number(cost);
+    });
+  }
+
+  function subtractExpense(cost) {
+    setExpense((prev) => {
+      return prev - Number(cost);
+    });
+  }
+
+  function addRemainingAmount(cost) {
+    setRemainingAmount((prev) => {
+      return prev + Number(cost);
     });
   }
 
