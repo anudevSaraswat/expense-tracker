@@ -10,6 +10,8 @@ export function AddExpenseForm({ addExpense }) {
             <form id="expensive" onSubmit={(e) => {
                 e.preventDefault();
                 addExpense(name, cost);
+                setCost("");
+                setName("");
             }}>
                 <div className="row">
                     <div className="col-sm">
@@ -18,6 +20,7 @@ export function AddExpenseForm({ addExpense }) {
                             type="text"
                             className="form-control"
                             id="name"
+                            value={name}
                             onChange={(e) => { setName(e.target.value) }}>
                         </input>
                     </div>
@@ -27,6 +30,7 @@ export function AddExpenseForm({ addExpense }) {
                             type="text"
                             className="form-control"
                             id="cost"
+                            value={cost}
                             onChange={(e) => { setCost(e.target.value) }}>
                         </input>
                     </div>
