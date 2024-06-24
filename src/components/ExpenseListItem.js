@@ -1,14 +1,14 @@
 import { TiDelete } from 'react-icons/ti';
 
-export function ExpenseListItem(props) {
+export function ExpenseListItem({ expense, removeExpense }) {
     return (
         <li className="list-group-item d-flex justify-content-between align-items-center">
-            {props.name}
+            {expense.name}
             <span>
-                {props.cost}INR
+                {expense.cost}INR
             </span>
             <div>
-                <TiDelete size="1.5em"></TiDelete>
+                <TiDelete size="1.5em" onClick={() => removeExpense(expense.id)}></TiDelete>
             </div>
         </li>
     );
