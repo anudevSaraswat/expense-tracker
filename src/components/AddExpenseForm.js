@@ -3,15 +3,19 @@ import { useState } from "react";
 export function AddExpenseForm({ addExpense }) {
 
     const [name, setName] = useState('');
-    const [cost, setCost] = useState('');
+    const [cost, setCost] = useState(0);
 
     return (
         <div>
             <form id="expensive" onSubmit={(e) => {
                 e.preventDefault();
-                addExpense(name, cost);
-                setCost("");
-                setName("");
+                if (cost === 0) {
+                    alert("Expense value cannot be 0");
+                } else {
+                    addExpense(name, cost);
+                    setCost("");
+                    setName("");
+                }
             }}>
                 <div className="row">
                     <div className="col-sm">
@@ -27,11 +31,11 @@ export function AddExpenseForm({ addExpense }) {
                     <div className="col-sm">
                         <label for="cost">Cost</label>
                         <input required="required"
-                            type="text"
+                            type="number"
                             className="form-control"
                             id="cost"
                             value={cost}
-                            onChange={(e) => { setCost(e.target.value) }}>
+                            onChange={(e) => { setCost(Number(e.target.value)) }}>
                         </input>
                     </div>
                 </div>

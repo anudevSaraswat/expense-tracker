@@ -18,11 +18,15 @@ function App() {
 
 
   function addNewExpense(name, cost) {
-    setExpenses((prev) => {
-      return [...prev, { id: uuidv4(), name: name, cost: cost }];
-    });
-    addExpense(cost);
-    subtractRemainingAmount(cost);
+    if (remainingAmount >= Number(cost)) {
+      setExpenses((prev) => {
+        return [...prev, { id: uuidv4(), name: name, cost: cost }];
+      });
+      addExpense(cost);
+      subtractRemainingAmount(cost);
+    } else {
+      alert("Remaining amount is not enough!")
+    }
   }
 
   function removeExpense(expenseID, cost) {
